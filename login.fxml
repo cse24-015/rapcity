@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane prefHeight="300" prefWidth="400" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginDialogController">
+    
+    <header>
+        <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Bank System Login" />
+    </header>
+    
+    <content>
+        <VBox spacing="15" style="-fx-padding: 20;">
+            <Label text="Please enter your credentials:" />
+            
+            <VBox spacing="5">
+                <Label text="Customer ID:" />
+                <TextField fx:id="customerIdField" promptText="Enter Customer ID" />
+            </VBox>
+            
+            <VBox spacing="5">
+                <Label text="Password:" />
+                <PasswordField fx:id="passwordField" promptText="Enter Password" />
+            </VBox>
+            
+            <Label fx:id="loginMessageLabel" style="-fx-text-fill: #e74c3c;" />
+         <Button mnemonicParsing="false" text="Submit" />
+        </VBox>
+    </content>
+</DialogPane>

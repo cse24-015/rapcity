@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="BankOperationsController"
+            prefHeight="500" prefWidth="700"
+            style="-fx-background-color: #f8f9fa;">
+    
+    <!-- Inherits top section from Window -->
+    <top>
+        <VBox style="-fx-background-color: #e74c3c; -fx-padding: 15;" spacing="10">
+            <Label text="Bank Management System - Bank Operations" 
+                   style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-weight: bold;" 
+                   alignment="CENTER"/>
+            <Label fx:id="bankWelcomeLabel" text="Bank Administrator" 
+                   style="-fx-text-fill: #ecf0f1; -fx-font-size: 16;" 
+                   alignment="CENTER"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 30;">
+            <Label text="Bank Operations" 
+                   style="-fx-font-size: 20; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+            
+            <GridPane hgap="15" vgap="15" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="250"/>
+                    <ColumnConstraints prefWidth="250"/>
+                </columnConstraints>
+                
+                <!-- Create Account -->
+                <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" 
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="Create Account" style="-fx-font-size: 16; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <TextField fx:id="customerNameField" promptText="Customer Name"/>
+                    <TextField fx:id="initialDepositField" promptText="Initial Deposit"/>
+                    <TextField fx:id="customerIdField" promptText="Customer ID"/>
+                    <Button fx:id="createAccountBtn" text="Create Account" 
+                            style="-fx-background-color: #9b59b6; -fx-text-fill: white;"
+                            onAction="#handleCreateAccount"/>
+                    <Label fx:id="createAccountResultLabel" style="-fx-text-fill: #8e44ad;"/>
+                </VBox>
+                
+                <!-- Validate Credentials -->
+                <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" 
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label text="Validate Credentials" style="-fx-font-size: 16; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <TextField fx:id="validateCustomerIdField" promptText="Customer ID"/>
+                    <TextField fx:id="validatePasswordField" promptText="Password" />
+                    <Button fx:id="validateBtn" text="Validate" 
+                            style="-fx-background-color: #f39c12; -fx-text-fill: white;"
+                            onAction="#handleValidateCredentials"/>
+                    <Label fx:id="validationResultLabel" style="-fx-text-fill: #d35400;"/>
+                </VBox>
+            </GridPane>
+            
+            <!-- Account Management Section -->
+            <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" 
+                  alignment="CENTER_LEFT">
+                <Label text="Account Management" style="-fx-font-size: 16; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchAccountField" promptText="Search Account Number"/>
+                    <Button fx:id="searchAccountBtn" text="Search Account" 
+                            style="-fx-background-color: #34495e; -fx-text-fill: white;"
+                            onAction="#handleSearchAccount"/>
+                </HBox>
+                <Label fx:id="accountDetailsLabel" style="-fx-text-fill: #2c3e50;"/>
+            </VBox>
+        </VBox>
+    </center>
+    
+    <!-- Inherits bottom section from Window -->
+    <bottom>
+        <HBox style="-fx-background-color: #ecf0f1; -fx-padding: 10;" alignment="CENTER">
+            <Label fx:id="bankStatusLabel" text="Bank Operations Session Active" 
+                   style="-fx-text-fill: #e74c3c;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="bankLogoutBtn" text="Logout" 
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white;"
+                    onAction="#handleLogout"/>
+        </HBox>
+    </bottom>
+</BorderPane>

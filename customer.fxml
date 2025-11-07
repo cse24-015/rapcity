@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="CustomerWindowController"
+            prefHeight="500" prefWidth="700"
+            style="-fx-background-color: #f8f9fa;">
+    
+    <!-- Inherits top section from Window -->
+    <top>
+        <VBox style="-fx-background-color: #3498db; -fx-padding: 15;" spacing="10">
+            <Label text="Bank Management System - Customer Portal" 
+                   style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-weight: bold;" 
+                   alignment="CENTER"/>
+            <Label fx:id="customerWelcomeLabel" text="Welcome Customer" 
+                   style="-fx-text-fill: #ecf0f1; -fx-font-size: 16;" 
+                   alignment="CENTER"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 30;">
+            <Label text="Customer Operations" 
+                   style="-fx-font-size: 20; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+            
+            <GridPane hgap="15" vgap="15" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="200"/>
+                    <ColumnConstraints prefWidth="200"/>
+                </columnConstraints>
+                
+                <!-- Check Balance -->
+                <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" 
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="Check Balance" style="-fx-font-size: 16; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <TextField fx:id="accountNumberField" promptText="Account Number"/>
+                    <Button fx:id="checkBalanceBtn" text="Check Balance" 
+                            style="-fx-background-color: #2ecc71; -fx-text-fill: white;"
+                            onAction="#handleCheckBalance"/>
+                    <Label fx:id="balanceResultLabel" style="-fx-text-fill: #27ae60;"/>
+                </VBox>
+                
+                <!-- Deposit -->
+                <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" 
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label text="Deposit Money" style="-fx-font-size: 16; -fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <TextField fx:id="depositAccountField" promptText="Account Number"/>
+                    <TextField fx:id="depositAmountField" promptText="Amount"/>
+                    <Button fx:id="depositBtn" text="Deposit" 
+                            style="-fx-background-color: #3498db; -fx-text-fill: white;"
+                            onAction="#handleDeposit"/>
+                    <Label fx:id="depositResultLabel" style="-fx-text-fill: #2980b9;"/>
+                </VBox>
+            </GridPane>
+        </VBox>
+    </center>
+    
+    <!-- Inherits bottom section from Window -->
+    <bottom>
+        <HBox style="-fx-background-color: #ecf0f1; -fx-padding: 10;" alignment="CENTER">
+            <Label fx:id="customerStatusLabel" text="Customer Session Active" 
+                   style="-fx-text-fill: #27ae60;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="logoutBtn" text="Logout" 
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white;"
+                    onAction="#handleLogout"/>
+        </HBox>
+    </bottom>
+</BorderPane>
